@@ -63,7 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final strings = Localization.of(context).strings;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -76,20 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(strings.greeting, style: const TextStyle(fontSize: 20)),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            ElevatedButton(
-              onPressed: () => LocaleProvider.of(context)
-                  .setLocale(const Locale('en', 'US')),
-              child: const Text("English"),
-            ),
-            ElevatedButton(
-              onPressed: () => LocaleProvider.of(context)
-                  .setLocale(const Locale('es', 'ES')),
-              child: const Text("Español"),
             ),
           ],
         ),

@@ -1,5 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/utils/localization/localization.dart';
+import 'package:whatsapp/utils/local_storage.dart/local_storage.dart';
+
+class LocaleController extends ChangeNotifier {
+  Locale _locale;
+  LocaleController(this._locale);
+
+  Locale get locale => _locale;
+
+  Future<void> setLocale(Locale locale) async {
+    _locale = locale;
+    await LocaleStorage.saveLocale(locale);
+    notifyListeners();
+  }
+}
 
 /// An InheritedWidget that exposes LocaleController to the widget tree.
 class LocaleProvider extends InheritedNotifier<LocaleController> {

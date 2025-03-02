@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/utils/local_storage.dart/local_storage.dart';
 import 'package:whatsapp/utils/localization/localization_en.dart';
 import 'package:whatsapp/utils/localization/localization_es.dart';
 import 'package:whatsapp/utils/localization/localization_strings.dart';
@@ -53,15 +52,6 @@ class _LocalizationDelegate extends LocalizationsDelegate<Localization> {
   bool shouldReload(_LocalizationDelegate old) => false;
 }
 
-class LocaleController extends ChangeNotifier {
-  Locale _locale;
-  LocaleController(this._locale);
-
-  Locale get locale => _locale;
-
-  Future<void> setLocale(Locale locale) async {
-    _locale = locale;
-    await LocaleStorage.saveLocale(locale);
-    notifyListeners();
-  }
+extension LocalizationExtension on BuildContext {
+  LocalizedStrings get loc => Localization.of(this).strings;
 }
