@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/utils/localization/localization_en.dart';
-import 'package:whatsapp/utils/localization/localization_es.dart';
 import 'package:whatsapp/utils/localization/localization_strings.dart';
 
 class Localization {
   final Locale locale;
-  late final LocalizedStrings strings;
+  late final LocalizationStrings strings;
   Localization(this.locale) {
     strings = getStrings(locale.languageCode);
   }
 
   static const supportedLocales = [
     Locale('en', 'US'),
-    Locale('es', 'ES'),
   ];
 
   static const LocalizationsDelegate<Localization> delegate =
@@ -22,10 +20,8 @@ class Localization {
     return Localizations.of<Localization>(context, Localization)!;
   }
 
-  static LocalizedStrings getStrings(String code) {
+  static LocalizationStrings getStrings(String code) {
     switch (code) {
-      case 'es':
-        return LocalizationES();
       case 'en':
       default:
         return LocalizationEN();
@@ -50,8 +46,4 @@ class _LocalizationDelegate extends LocalizationsDelegate<Localization> {
 
   @override
   bool shouldReload(_LocalizationDelegate old) => false;
-}
-
-extension LocalizationExtension on BuildContext {
-  LocalizedStrings get loc => Localization.of(this).strings;
 }

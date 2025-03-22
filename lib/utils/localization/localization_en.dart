@@ -1,12 +1,15 @@
 import 'package:whatsapp/utils/localization/localization_strings.dart';
 
-class LocalizationEN extends LocalizedStrings {
+class LocalizationEN extends LocalizationStrings {
   @override
-  String get title => "Hello World";
+  String get chats => "chats";
 
   @override
-  String get greeting => "Welcome to our app!";
+  String get updates => "updates";
 
   @override
-  String get welcomeMessage => "We hope you enjoy your stay.";
+  String get communities => "communities";
+
+  @override
+  String get calls => "calls";
 }
