@@ -8,12 +8,12 @@ class AppTheme {
   static final ColorScheme _lightColorScheme = ColorScheme(
     brightness: Brightness.light,
     primary: ConstantThemeColors.whatsAppGreenLight,
-    onPrimary: ConstantThemeColors.lightBackground,
+    onPrimary: ConstantThemeColors.lightOnPrimary,
     secondary: ConstantThemeColors.whatsAppGreenAccent,
-    onSecondary: ConstantThemeColors.lightBackground,
+    onSecondary: ConstantThemeColors.lightOnSecondary,
     surface: ConstantThemeColors.lightBackground,
     onSurface: ConstantThemeColors.lightText,
-    error: Colors.red,
+    error: ConstantThemeColors.errorColor,
     onError: Colors.white,
   );
 
@@ -21,12 +21,12 @@ class AppTheme {
   static final ColorScheme _darkColorScheme = ColorScheme(
     brightness: Brightness.dark,
     primary: ConstantThemeColors.whatsAppGreenLight,
-    onPrimary: ConstantThemeColors.darkBackground,
+    onPrimary: ConstantThemeColors.darkOnPrimary,
     secondary: ConstantThemeColors.whatsAppGreenAccent,
-    onSecondary: ConstantThemeColors.darkBackground,
+    onSecondary: ConstantThemeColors.darkOnSecondary,
     surface: ConstantThemeColors.darkBackground,
     onSurface: ConstantThemeColors.darkText,
-    error: Colors.red.shade400,
+    error: ConstantThemeColors.errorColor,
     onError: Colors.black,
   );
 
@@ -43,6 +43,8 @@ class AppTheme {
       backgroundColor: _lightColorScheme.secondary,
       foregroundColor: _lightColorScheme.onSecondary,
     ),
+    cardColor: ConstantThemeColors.lightCardColor,
+    dividerColor: ConstantThemeColors.lightDivider,
   );
 
   ///  DARK THEME DATA
@@ -58,5 +60,7 @@ class AppTheme {
       backgroundColor: _darkColorScheme.secondary,
       foregroundColor: _darkColorScheme.onSecondary,
     ),
+    cardColor: ConstantThemeColors.darkCardColor,
+    dividerColor: ConstantThemeColors.darkDivider,
   );
 }

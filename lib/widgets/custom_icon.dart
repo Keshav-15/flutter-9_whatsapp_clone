@@ -20,8 +20,8 @@ class CustomIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isSelected = currentIndex == index;
     final iconColor = isSelected
-        ? context.colorScheme.primary
-        : context.colorScheme.primary.withCustomOpacity(0.6);
+        ? context.colorScheme.onSurface.withCustomOpacity(0.65)
+        : context.colorScheme.onSurface.withCustomOpacity(0.8);
 
     return AnimatedContainer(
       duration: Duration(milliseconds: 100),

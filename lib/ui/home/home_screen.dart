@@ -32,14 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
   void _initializeBottomNavItems() {
     _bottomNavigationBarItems = [
       BottomNavigationItem(
-        icon: ConstantImages.calls,
-        iconSelected: ConstantImages.callsSelected,
-        title: context.loc.calls.capitalizeFirstLetter(),
-      ),
-      BottomNavigationItem(
         icon: ConstantImages.chats,
         iconSelected: ConstantImages.chatsSelected,
         title: context.loc.chats.capitalizeFirstLetter(),
+      ),
+      BottomNavigationItem(
+        icon: ConstantImages.updates,
+        iconSelected: ConstantImages.updatesSelected,
+        title: context.loc.updates.capitalizeFirstLetter(),
       ),
       BottomNavigationItem(
         icon: ConstantImages.communities,
@@ -47,9 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
         title: context.loc.communities.capitalizeFirstLetter(),
       ),
       BottomNavigationItem(
-        icon: ConstantImages.updates,
-        iconSelected: ConstantImages.updatesSelected,
-        title: context.loc.updates.capitalizeFirstLetter(),
+        icon: ConstantImages.calls,
+        iconSelected: ConstantImages.callsSelected,
+        title: context.loc.calls.capitalizeFirstLetter(),
       ),
     ];
   }
