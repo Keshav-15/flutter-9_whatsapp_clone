@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ConstantThemeColors {
+class ConstantColors {
   // Primary Colors
   static const Color whatsAppGreenDark = Color(0xFF075E54);
   static const Color whatsAppGreenLight = Color(0xFF128C7E);

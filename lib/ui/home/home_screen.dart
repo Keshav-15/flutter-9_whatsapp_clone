@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/extensions/localization_extension.dart';
+import 'package:whatsapp/extensions/scaffold_extension.dart';
 import 'package:whatsapp/extensions/string_extension.dart';
 import 'package:whatsapp/models/bottom_navigation_item.dart';
+import 'package:whatsapp/utils/constants/constant_font.dart';
 import 'package:whatsapp/utils/constants/constant_images.dart';
 import 'package:whatsapp/widgets/custom_bottom_navigation_bar.dart';
 
@@ -72,21 +74,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        physics: ClampingScrollPhysics(),
-        onPageChanged: _onPageChanged,
-        children: List.generate(_bottomNavigationBarItems.length, (index) {
-          return _buildPage(index, context);
-        }),
-      ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: _onTabTapped,
-        items: _bottomNavigationBarItems,
-      ),
-    );
+    return PageView(
+      controller: _pageController,
+      physics: ClampingScrollPhysics(),
+      onPageChanged: _onPageChanged,
+      children: List.generate(_bottomNavigationBarItems.length, (index) {
+        return _buildPage(index, context);
+      }),
+    ).homeScreenScaffold(
+        title: context.loc.whatsApp.capitalizeFirstLetter(),
+        bottomNavigationBar: CustomBottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: _onTabTapped,
+          items: _bottomNavigationBarItems,
+        ));
   }
 
   Widget _buildPage(int index, BuildContext context) {
@@ -122,7 +123,9 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Center(
         child: Text(
           title,
-          style: TextStyle(fontSize: 24),
+          style: TextStyle(
+            fontSize: ConstantFont.fontSize24,
+          ),
         ),
       ),
     );

@@ -19,9 +19,11 @@ class CustomIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isSelected = currentIndex == index;
+    final bottomNavigationBarTheme =
+        context.currentTheme.bottomNavigationBarTheme;
     final iconColor = isSelected
-        ? context.colorScheme.onSurface.withCustomOpacity(0.65)
-        : context.colorScheme.onSurface.withCustomOpacity(0.8);
+        ? bottomNavigationBarTheme.selectedIconTheme?.color
+        : bottomNavigationBarTheme.unselectedIconTheme?.color;
 
     return AnimatedContainer(
       duration: Duration(milliseconds: 100),
@@ -29,7 +31,8 @@ class CustomIcon extends StatelessWidget {
           EdgeInsets.symmetric(vertical: 5, horizontal: isSelected ? 20 : 0),
       decoration: BoxDecoration(
         color: isSelected
-            ? context.colorScheme.secondary.withCustomOpacity(0.3)
+            ? context.currentTheme.appBarTheme.titleTextStyle?.color
+                ?.withCustomOpacity(0.3)
             : null,
         borderRadius: BorderRadius.horizontal(
           left: Radius.circular(40),

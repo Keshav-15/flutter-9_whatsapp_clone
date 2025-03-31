@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/utils/constants/constant_theme_colors.dart';
+import 'package:whatsapp/extensions/color_extension.dart';
+import 'package:whatsapp/utils/constants/constant_colors.dart';
+import 'package:whatsapp/utils/constants/constant_font.dart';
 
 class AppTheme {
   AppTheme._();
@@ -7,26 +9,26 @@ class AppTheme {
   ///  LIGHT COLOR SCHEME
   static final ColorScheme _lightColorScheme = ColorScheme(
     brightness: Brightness.light,
-    primary: ConstantThemeColors.whatsAppGreenLight,
-    onPrimary: ConstantThemeColors.lightOnPrimary,
-    secondary: ConstantThemeColors.whatsAppGreenAccent,
-    onSecondary: ConstantThemeColors.lightOnSecondary,
-    surface: ConstantThemeColors.lightBackground,
-    onSurface: ConstantThemeColors.lightText,
-    error: ConstantThemeColors.errorColor,
+    primary: ConstantColors.whatsAppGreenLight,
+    onPrimary: ConstantColors.lightOnPrimary,
+    secondary: ConstantColors.whatsAppGreenAccent,
+    onSecondary: ConstantColors.lightOnSecondary,
+    surface: ConstantColors.lightBackground,
+    onSurface: ConstantColors.lightText,
+    error: ConstantColors.errorColor,
     onError: Colors.white,
   );
 
   ///  DARK COLOR SCHEME
   static final ColorScheme _darkColorScheme = ColorScheme(
     brightness: Brightness.dark,
-    primary: ConstantThemeColors.whatsAppGreenLight,
-    onPrimary: ConstantThemeColors.darkOnPrimary,
-    secondary: ConstantThemeColors.whatsAppGreenAccent,
-    onSecondary: ConstantThemeColors.darkOnSecondary,
-    surface: ConstantThemeColors.darkBackground,
-    onSurface: ConstantThemeColors.darkText,
-    error: ConstantThemeColors.errorColor,
+    primary: ConstantColors.whatsAppGreenLight,
+    onPrimary: ConstantColors.darkOnPrimary,
+    secondary: ConstantColors.whatsAppGreenAccent,
+    onSecondary: ConstantColors.darkOnSecondary,
+    surface: ConstantColors.darkBackground,
+    onSurface: ConstantColors.darkText,
+    error: ConstantColors.errorColor,
     onError: Colors.black,
   );
 
@@ -34,33 +36,85 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     colorScheme: _lightColorScheme,
     useMaterial3: true,
-    scaffoldBackgroundColor: _lightColorScheme.surface,
+    scaffoldBackgroundColor: ConstantColors.lightBackground,
     appBarTheme: AppBarTheme(
-      backgroundColor: _lightColorScheme.primary,
-      foregroundColor: _lightColorScheme.onPrimary,
+      backgroundColor: ConstantColors.lightBackground,
+      foregroundColor: ConstantColors.lightOnPrimary,
+      centerTitle: false,
+      titleTextStyle: TextStyle(
+          color: ConstantColors.whatsAppGreenAccent,
+          fontSize: ConstantFont.fontSize24,
+          fontWeight: ConstantFont.fontWeightBold),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: ConstantColors.lightBackground,
+      selectedItemColor: ConstantColors.lightText,
+      unselectedItemColor: ConstantColors.lightText.withCustomOpacity(0.9),
+      selectedLabelStyle: TextStyle(
+        fontSize: ConstantFont.fontSize13,
+        fontWeight: ConstantFont.fontWeightBold,
+        color: ConstantColors.lightText,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontSize: ConstantFont.fontSize13,
+        fontWeight: ConstantFont.fontWeightSemiBold,
+        color: ConstantColors.lightText.withCustomOpacity(0.9),
+      ),
+      selectedIconTheme: IconThemeData(
+        color: ConstantColors.lightText.withCustomOpacity(0.65),
+      ),
+      unselectedIconTheme: IconThemeData(
+        color: ConstantColors.lightText.withCustomOpacity(0.8),
+      ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: _lightColorScheme.secondary,
-      foregroundColor: _lightColorScheme.onSecondary,
+      backgroundColor: ConstantColors.whatsAppGreenAccent,
+      foregroundColor: ConstantColors.lightText,
     ),
-    cardColor: ConstantThemeColors.lightCardColor,
-    dividerColor: ConstantThemeColors.lightDivider,
+    cardColor: ConstantColors.lightCardColor,
+    dividerColor: ConstantColors.lightDivider,
   );
 
   ///  DARK THEME DATA
   static final ThemeData darkTheme = ThemeData(
     colorScheme: _darkColorScheme,
     useMaterial3: true,
-    scaffoldBackgroundColor: _darkColorScheme.surface,
+    scaffoldBackgroundColor: ConstantColors.darkBackground,
     appBarTheme: AppBarTheme(
-      backgroundColor: _darkColorScheme.primary,
-      foregroundColor: _darkColorScheme.onPrimary,
+      backgroundColor: ConstantColors.darkBackground,
+      foregroundColor: ConstantColors.darkOnPrimary,
+      centerTitle: false,
+      titleTextStyle: TextStyle(
+          color: ConstantColors.darkText,
+          fontSize: ConstantFont.fontSize24,
+          fontWeight: ConstantFont.fontWeightBold),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: ConstantColors.darkBackground,
+      selectedItemColor: ConstantColors.darkText,
+      unselectedItemColor: ConstantColors.darkText.withCustomOpacity(0.9),
+      selectedLabelStyle: TextStyle(
+        fontSize: ConstantFont.fontSize13,
+        fontWeight: ConstantFont.fontWeightBold,
+        color: ConstantColors.darkText,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontSize: ConstantFont.fontSize13,
+        fontWeight: ConstantFont.fontWeightSemiBold,
+        color: ConstantColors.darkText.withCustomOpacity(0.9),
+      ),
+      selectedIconTheme: IconThemeData(
+        color: ConstantColors.darkText.withCustomOpacity(0.65),
+      ),
+      unselectedIconTheme: IconThemeData(
+        color: ConstantColors.darkText.withCustomOpacity(0.8),
+      ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: _darkColorScheme.secondary,
-      foregroundColor: _darkColorScheme.onSecondary,
+      backgroundColor: ConstantColors.whatsAppGreenAccent,
+      foregroundColor: ConstantColors.darkText,
     ),
-    cardColor: ConstantThemeColors.darkCardColor,
-    dividerColor: ConstantThemeColors.darkDivider,
+    cardColor: ConstantColors.darkCardColor,
+    dividerColor: ConstantColors.darkDivider,
   );
 }
